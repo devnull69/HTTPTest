@@ -58,12 +58,13 @@ public class Main {
                 }
 
                 if(currentDate.after(lastDate)) {
+                    System.out.println();
                     System.out.println(film.getName() + ": " + currentDateStr);
                 } else {
-                    System.out.println(film.getName() + ": Nicht gefunden");
+                    System.out.print(".");
                 }
             } else {
-                System.out.println(film.getName() + ": Nicht vorhanden");
+                System.out.print(".");
             }
         }
 
@@ -82,9 +83,10 @@ public class Main {
 
                 String currentDateStr = getMaxDateFromElements(liElements);
 
+                System.out.println();
                 System.out.println(serie.toString() + ": " + currentDateStr);
             } else {
-                System.out.println(serie.toString() + ": Nicht gefunden");
+                System.out.print(".");
             }
         }
 
