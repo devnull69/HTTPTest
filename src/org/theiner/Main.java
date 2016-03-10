@@ -57,7 +57,7 @@ public class Main {
                     e.printStackTrace();
                 }
 
-                if(currentDate.after(lastDate)) {
+                if(lastDate!=null && currentDate.after(lastDate)) {
                     System.out.println();
                     System.out.println(film.getName() + ": " + currentDateStr);
                 } else {
@@ -122,14 +122,14 @@ public class Main {
     }
 
     private static List<Serie> getSerien() {
-        List<Serie> result = new ArrayList<Serie>();
+        List<Serie> result = new ArrayList<>();
 
         Serie twd = new Serie();
         twd.setName("The Walking Dead");
         twd.setAddr("The_Walking_Dead-1");
         twd.setSeriesID(10437);
         twd.setSeason(6);
-        twd.setEpisode(11);
+        twd.setEpisode(13);
         result.add(twd);
 
         Serie shameless = new Serie();
@@ -145,7 +145,7 @@ public class Main {
         sn_en.setAddr("Supernatural_german_subbed");
         sn_en.setSeriesID(27249);
         sn_en.setSeason(11);
-        sn_en.setEpisode(15);
+        sn_en.setEpisode(16);
         result.add(sn_en);
 
         Serie sn_de = new Serie();
@@ -193,7 +193,7 @@ public class Main {
         bcs.setAddr("Better_Call_Saul");
         bcs.setSeriesID(54593);
         bcs.setSeason(2);
-        bcs.setEpisode(3);
+        bcs.setEpisode(5);
         result.add(bcs);
 
         Serie ol = new Serie();
@@ -208,8 +208,8 @@ public class Main {
         ahs.setName("American Horror Story");
         ahs.setAddr("American_Horror_Story-Die_dunkle_Seite_in_dir-1");
         ahs.setSeriesID(37361);
-        ahs.setSeason(5);
-        ahs.setEpisode(13);
+        ahs.setSeason(6);
+        ahs.setEpisode(1);
         result.add(ahs);
 
         Serie tbbt = new Serie();
@@ -217,26 +217,20 @@ public class Main {
         tbbt.setAddr("The_Big_Bang_Theory_german_subbed");
         tbbt.setSeriesID(27242);
         tbbt.setSeason(9);
-        tbbt.setEpisode(17);
+        tbbt.setEpisode(18);
         result.add(tbbt);
 
         return result;
     }
 
     private static List<Film> getFilme() {
-        List<Film> result = new ArrayList<Film>();
+        List<Film> result = new ArrayList<>();
 
         Film gh = new Film();
         gh.setName("Gänsehaut");
         gh.setAddr("Gaensehaut");
-        gh.setLastDate("12.02.2016");
+        gh.setLastDate("07.03.2016");
         result.add(gh);
-
-        Film panem = new Film();
-        panem.setName("Tribute von Panem 4 Teil 2");
-        panem.setAddr("Die_Tribute_von_Panem-Mockingjay_Teil_2");
-        panem.setLastDate("12.01.2016");
-        result.add(panem);
 
         Film testament = new Film();
         testament.setName("Das brandneue Testament");
@@ -244,22 +238,16 @@ public class Main {
         testament.setLastDate("25.02.2016");
         result.add(testament);
 
-        Film revenant = new Film();
-        revenant.setName("The Revenant");
-        revenant.setAddr("The_Revenant-Der_Rueckkehrer");
-        revenant.setLastDate("23.01.2016");
-        result.add(revenant);
-
         Film deadpool = new Film();
         deadpool.setName("Deadpool");
         deadpool.setAddr("Deadpool");
-        deadpool.setLastDate("25.02.2016");
+        deadpool.setLastDate("06.03.2016");
         result.add(deadpool);
 
         Film zoomania = new Film();
         zoomania.setName("Zoomania");
         zoomania.setAddr("Zoomania");
-        zoomania.setLastDate("25.02.2016");
+        zoomania.setLastDate("05.03.2016");
         result.add(zoomania);
 
         return result;
@@ -267,7 +255,7 @@ public class Main {
 
     private static Document getDocumentFromHTML(String html) {
         Parser p = new Parser();
-        SAX2DOM sax2dom = null;
+        SAX2DOM sax2dom;
         Document doc  = null;
 
         try {
@@ -289,7 +277,7 @@ public class Main {
 
     private static Document getDocumentFromUrl(String strUrl) {
         Parser p = new Parser();
-        SAX2DOM sax2dom = null;
+        SAX2DOM sax2dom;
         Document doc  = null;
 
         try {
@@ -319,9 +307,9 @@ public class Main {
     }
 
     private static String getHtmlFromUrl(String strUrl) {
-        URL url = null;
+        URL url;
         BufferedReader reader = null;
-        StringBuilder sb = null;
+        StringBuilder sb;
         String returnValue = "";
 
         try {
@@ -337,9 +325,10 @@ public class Main {
             reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             sb = new StringBuilder();
 
-            String line = null;
+            String line;
             while((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line);
+                sb.append("\n");
             }
             returnValue = sb.toString();
         } catch(Exception e) {
