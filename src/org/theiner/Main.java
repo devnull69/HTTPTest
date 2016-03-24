@@ -129,7 +129,7 @@ public class Main {
         twd.setAddr("The_Walking_Dead-1");
         twd.setSeriesID(10437);
         twd.setSeason(6);
-        twd.setEpisode(13);
+        twd.setEpisode(15);
         result.add(twd);
 
         Serie shameless = new Serie();
@@ -193,7 +193,7 @@ public class Main {
         bcs.setAddr("Better_Call_Saul");
         bcs.setSeriesID(54593);
         bcs.setSeason(2);
-        bcs.setEpisode(5);
+        bcs.setEpisode(7);
         result.add(bcs);
 
         Serie ol = new Serie();
@@ -217,7 +217,7 @@ public class Main {
         tbbt.setAddr("The_Big_Bang_Theory_german_subbed");
         tbbt.setSeriesID(27242);
         tbbt.setSeason(9);
-        tbbt.setEpisode(18);
+        tbbt.setEpisode(19);
         result.add(tbbt);
 
         return result;
@@ -225,12 +225,6 @@ public class Main {
 
     private static List<Film> getFilme() {
         List<Film> result = new ArrayList<>();
-
-        Film gh = new Film();
-        gh.setName("Gänsehaut");
-        gh.setAddr("Gaensehaut");
-        gh.setLastDate("07.03.2016");
-        result.add(gh);
 
         Film testament = new Film();
         testament.setName("Das brandneue Testament");
@@ -241,14 +235,20 @@ public class Main {
         Film deadpool = new Film();
         deadpool.setName("Deadpool");
         deadpool.setAddr("Deadpool");
-        deadpool.setLastDate("06.03.2016");
+        deadpool.setLastDate("12.03.2016");
         result.add(deadpool);
 
         Film zoomania = new Film();
         zoomania.setName("Zoomania");
         zoomania.setAddr("Zoomania");
-        zoomania.setLastDate("05.03.2016");
+        zoomania.setLastDate("20.03.2016");
         result.add(zoomania);
+
+        Film allegiant = new Film();
+        allegiant.setName("Die Bestimmung-Allegiant Part 1");
+        allegiant.setAddr("Die_Bestimmung-Allegiant_Part_1");
+        allegiant.setLastDate("23.03.2016");
+        result.add(allegiant);
 
         return result;
     }
